@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
 
 function ExpenseItem(props) {
-
-  let title = props.title;
+  //title is the thing we want to change//
+  //settitle is the thing we change to //
+  const [title,setTitle] = useState(props.title);
 
   const clickHandler = () =>{
-    console.log("clicked!!");
+    setTitle('Updated');
+    //still get the title for the first time of code running//
+    //change it second time//
+    console.log(title);
   };
 
   return (
