@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import './ExpenseForm.css';
 
-const ExpenseForm = () =>{
+const ExpenseForm = (props) =>{
   const [enteredTitle,setEnteredTitle] =useState("");
   const [enteredAmount,setEnteredAmount]=useState("");
   const [enteredDate,setEnteredDate]=useState("");
@@ -48,14 +48,14 @@ const ExpenseForm = () =>{
     //prevent this request to send//
     event.preventDefault();
 
-    const ExpenseData = {
+    const expenseData = {
       title:enteredTitle,
       amount:enteredAmount,
       date:new Date(enteredDate)
     };
 
     //after submit button trigger, set it to empty string//
-    console.log(ExpenseData);
+    props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
